@@ -20,6 +20,10 @@ class Ninja{
     }
 }
 
+const ninja1 = new Ninja("Victor")
+
+
+
 class Sensei extends Ninja{
     constructor(nameInput){
         super(nameInput)
