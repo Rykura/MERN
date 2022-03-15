@@ -8,7 +8,7 @@ function App() {
       <h1>Pokemon Generator</h1>
       <PokemonGen></PokemonGen>
     </div>
-  );
+  ); 
 }
 
 export default App;
