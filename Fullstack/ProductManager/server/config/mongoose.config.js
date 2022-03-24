@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('runValidators', true)
 
 mongoose.connect('mongodb://localhost/product_db', {
     useNewUrlParser: true,

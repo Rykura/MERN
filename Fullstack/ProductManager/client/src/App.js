@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import {
   BrowserRouter,
   Link,
   Switch,
   Route
 } from "react-router-dom";
-import Main from './views/Main';
-import Detail from './views/Details';
+import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail';
+import ProductForm from './components/ProductForm';
+import UpdateForm from './components/UpdateForm';
+
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
   return (
     <BrowserRouter>
       <div className="App">
@@ -20,10 +24,25 @@ function App() {
       </div>
       <Switch>
         <Route exact path="/">
-          <Main></Main>
+            <div class="d-flex justify-content-around">
+              <div class="p-5 container">
+                <h2 class="text-center">Add Product!</h2>
+                <br></br>
+                <ProductForm loaded = {loaded} setLoaded = {setLoaded}></ProductForm>
+              </div>
+              <br></br>
+              <div class="p-5 container">
+                <h2 class="text-center">Our Products</h2>
+                <br></br>
+                <ProductList loaded = {loaded}></ProductList>
+              </div>
+            </div>
         </Route>
         <Route exact path="/products/:_id">
-          <Detail></Detail>
+          <ProductDetail></ProductDetail>
+        </Route>
+        <Route path="/product/edit/:_id">
+          <UpdateForm></UpdateForm>
         </Route>
       </Switch>
     </BrowserRouter>

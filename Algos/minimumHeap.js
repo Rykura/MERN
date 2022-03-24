@@ -16,6 +16,19 @@ class minHeap{
             }
         }
     }
+    remove(){
+        [this.heap[1], this.heap[this.heap.length - 1]] = [this.heap[this.heap.length - 1], this.heap[1]]
+        this.heap.pop();
+        for(var i = 1; i < this.heap.length; i++){
+            if (this.heap[i] > this.heap[i*2] && this.heap[i*2] < this.heap[(i*2)+1]){
+                [this.heap[i], this.heap[i*2]] = [this.heap[i*2], this.heap[i]]
+            }
+            else if (this.heap[i] > this.heap[(i*2)+1]){
+                [this.heap[i], this.heap[(i*2)+1]] = [this.heap[(i*2)+1], this.heap[i]]
+            }
+            console.log(this.heap)
+        }
+    }
 }
 
 let heap1 = new minHeap();
@@ -28,5 +41,7 @@ heap1.insert(109);
 heap1.insert(33);
 heap1.insert(117);
 
+
 console.log(heap1)
 
+heap1.remove();
